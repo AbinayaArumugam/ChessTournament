@@ -9,7 +9,7 @@ public class Player {
     private String  lose;
     private String  draw;
     private float point;
-    private int currentRating;
+    private float currentRating;
     public Player(String name){
         this.name=name;
         playerCount+=1;
@@ -86,11 +86,11 @@ public class Player {
         this.point = point;
     }
 
-    public int getCurrentRating() {
+    public float getCurrentRating() {
         return currentRating;
     }
 
-    public void setCurrentRating(int currentRating) {
+    public void setCurrentRating(float currentRating) {
         this.currentRating = currentRating;
     }
 
