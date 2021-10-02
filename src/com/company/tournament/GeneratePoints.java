@@ -3,7 +3,7 @@ package com.company.tournament;
 import java.util.*;
 
 public class GeneratePoints {
-    public static void generatePoints(List<Map.Entry<Integer,Player>> list) {
+    public static List generatePoints(List<Map.Entry<Integer,Player>> list) {
      float totalPoint=0;
      float oppTotal=0;
       Map<Integer,Player> map1=new HashMap<>();
@@ -24,8 +24,8 @@ public class GeneratePoints {
                     player.setPoint(0.5F);
                     opponent.setPoint(0.5F);
                 }
-                totalPoint+=player.getPoint();
-                oppTotal+=opponent.getPoint();
+                totalPoint=player.getCurrentRating()+player.getPoint();
+                oppTotal=opponent.getCurrentRating()+opponent.getPoint();
                 player.setCurrentRating(totalPoint);
                 opponent.setCurrentRating(oppTotal);
                 map1.put(player.getPlayerId(),player);
@@ -47,8 +47,8 @@ public class GeneratePoints {
                     player.setPoint(0.5F);
                     opponent.setPoint(0.5F);
                 }
-                 totalPoint+=player.getPoint();
-                oppTotal+=opponent.getPoint();
+                 totalPoint=player.getCurrentRating()+player.getPoint();
+                oppTotal=opponent.getCurrentRating()+opponent.getPoint();
                 player.setCurrentRating(totalPoint);
                 opponent.setCurrentRating(oppTotal);
                 map1.put(player.getPlayerId(),player);
@@ -57,12 +57,13 @@ public class GeneratePoints {
             }
             Player player=list.get(list.size()-1).getValue();
             player.setPoint(1);
-            totalPoint+=player.getPoint();
+            totalPoint=player.getCurrentRating()+player.getPoint();
             player.setCurrentRating(totalPoint);
             map1.put(player.getPlayerId(),player);
             System.out.println(list.get(list.size()-1)+" ("+player.getPoint()+" : "+"0"+ " )"+ "Bye");
         }
         List<Map.Entry<Integer,Player>> newList=new ArrayList<>(map1.entrySet());
         Main.map=map1;
+        return newList;
     }
 }

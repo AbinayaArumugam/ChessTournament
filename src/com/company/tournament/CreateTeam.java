@@ -34,16 +34,26 @@ public class CreateTeam {
        return list;
     }
     public static void poolMatch(List<Map.Entry<Integer,Player>> list){
-      if(list.size()%2==0) {
-          for (int i = 0; i < list.size(); i += 2) {
+      int size=list.size();
+        if(size%2==0) {
+        /*  for (int i = 0; i < list.size(); i += 2) {
               System.out.println(list.get(i) + " vs " + list.get(i + 1));
-          }
+          }*/
+          match(list,size);
+
       }else {
-          for (int i=0;i<list.size()-1;i+=2){
+        /*  for (int i=0;i<list.size()-1;i+=2){
               System.out.println(list.get(i)+" vs "+list.get(i+1));
-          }
+          }*/
+          match(list,size-1);
           System.out.println(list.get(list.size()-1)+" vs "+ "Bye");
       }
     }
+    public static void match(List<Map.Entry<Integer,Player>> list, int size) {
+        for (int i = 0; i < size; i += 2) {
+            System.out.println(list.get(i) + " vs " + list.get(i + 1));
+        }
+    }
+    }
 
-}
+

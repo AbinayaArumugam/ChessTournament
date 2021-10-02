@@ -5,9 +5,9 @@ public class Player {
     private int playerId;
     private String name;
     private int noOfMatches;
-    private String win;
-    private String  lose;
-    private String  draw;
+    private int win;
+    private int  lose;
+    private int  draw;
     private float point;
     private float currentRating;
     public Player(String name){
@@ -15,9 +15,9 @@ public class Player {
         playerCount+=1;
         playerId=playerCount;
         this.noOfMatches=0;
-        this.win="";
-        this.lose="";
-        this.draw="";
+        this.win=0;
+        this.lose=0;
+        this.draw=0;
         this.currentRating=0;
         this.point=0;
     }
@@ -54,27 +54,27 @@ public class Player {
         this.noOfMatches = noOfMatches;
     }
 
-    public String getWin() {
+    public int getWin() {
         return win;
     }
 
-    public void setWin(String win) {
+    public void setWin(int win) {
         this.win = win;
     }
 
-    public String getLose() {
+    public int getLose() {
         return lose;
     }
 
-    public void setLose(String lose) {
+    public void setLose(int lose) {
         this.lose = lose;
     }
 
-    public String getDraw() {
+    public int getDraw() {
         return draw;
     }
 
-    public void setDraw(String draw) {
+    public void setDraw(int draw) {
         this.draw = draw;
     }
 
