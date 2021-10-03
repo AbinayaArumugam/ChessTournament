@@ -3,10 +3,8 @@ package com.company.tournament;
 import java.util.*;
 
 public class Main {
-      static Map<Integer,Player> map=new HashMap<>();
-      static List list=new ArrayList();
-
     public static void main(String[] args) {
+        List<Map.Entry<Integer,Player>> list;
         Scanner in = new Scanner(System.in);
         System.out.println("-------CHESS TOURNAMENT--------");
         System.out.println("Enter the No.of Participants");
@@ -14,15 +12,17 @@ public class Main {
         System.out.println("Enter the No of Matches");
         int matches = in.nextInt();
         int i = 1;
-        List player = CreateTeam.createPlayers(participants);
-        list = CreateTeam.setMatch(player);
+        CreateTeam team=new CreateTeam();
+        GeneratePoints points=new GeneratePoints();
+        List<Player> player = team.createPlayers(participants);
         while (i <= matches) {
             System.out.println("Round "+i);
-            CreateTeam.poolMatch(list);
-            List list1=GeneratePoints.generatePoints(list);
+            list= team.setMatch();
+            team.poolMatch(list);
+            list=points.generatePoints(list);
             System.out.println("Points After Round "+i);
-            list=TotalPoints.displayTotalPoints(list1);
-            System.out.println("newList "+list);
+            list=team.setMatch();
+            team.displayTotalPoints(list);
             i++;
         }
     }
