@@ -7,7 +7,10 @@ public class CreateTeam {
     List<Player> players=new ArrayList<>();
     public List<Player> createPlayers(int noOfPlayers){
         for(int i=1;i<=noOfPlayers;i++){
-            Player play =new Player("Player "+i);
+            Player play =new Player();
+            play.setName("player"+i);
+            play.setCurrentRating(0);
+            play.setPlayerId(i);
             players.add(play);
         }
         cache.createMap(players);

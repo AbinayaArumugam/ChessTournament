@@ -1,7 +1,8 @@
 package com.company.tournament;
 
+import java.util.List;
+
 public class Player {
-    static int playerCount = 0;
     private int playerId;
     private String name;
     private int noOfMatches;
@@ -10,24 +11,14 @@ public class Player {
     private int  draw;
     private float point;
     private float currentRating;
-    public Player(String name){
-        this.name=name;
-        playerCount+=1;
-        playerId=playerCount;
-        this.noOfMatches=0;
-        this.win=0;
-        this.lose=0;
-        this.draw=0;
-        this.currentRating=0;
-        this.point=0;
+    private List<Match> matchList;
+
+    public List<Match> getMatchList() {
+        return matchList;
     }
 
-    public static int getPlayerCount() {
-        return playerCount;
-    }
-
-    public static void setPlayerCount(int playerCount) {
-        Player.playerCount = playerCount;
+    public void setMatchList(List<Match> matchList) {
+        this.matchList = matchList;
     }
 
     public int getPlayerId() {
